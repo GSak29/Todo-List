@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 export default function TodoPage() {
-    const [newItem, setInput] = useState("");
-    const [listItem, setItems] = useState([]);
+    const [newItem, setInput] = useState(""); //new item is the new element in the list
+    const [listItem, setItems] = useState([]); //listitems is the array of items
     function addItems() {
         if (newItem.trim() != "") {
             listItem.push(newItem);
@@ -13,11 +13,11 @@ export default function TodoPage() {
     return (
         <>
             <main>
-                <h1>Welcome to ToDo</h1>
+                <h1>Welcome to <strong>ToDo<span className="text-amber-600">Hub</span></strong></h1>
                 <section>
                     <input
                         value={newItem}
-                        onChange={(e) => setInput(e.target.value)}
+                        onChange={(e) => setInput(e.target.value)} // this is the way to get the value
                         type="text"
                     />
                     <button
@@ -30,7 +30,11 @@ export default function TodoPage() {
                 </section>
                 <section>
                     <ol>
-                        <li>Input :{listItem}</li>
+                    {
+                        listItem.map((value,index) =>{
+                            return <li key={index}>{value}</li>
+                        })
+                    }
                     </ol>
                 </section>
             </main>
