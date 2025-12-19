@@ -13,7 +13,7 @@ export default function TodoPage() {
     return (
         <>
             <main>
-                <h1>Welcome to <strong>ToDo<span className="text-amber-600">Hub</span></strong></h1>
+                <h1>Welcome to <strong>ToDo<span className="text-amber-600 w-fit">Hub</span></strong></h1>
                 <section>
                     <input
                         value={newItem}
